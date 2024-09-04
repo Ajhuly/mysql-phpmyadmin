@@ -1,14 +1,30 @@
 
 version: '1.1'
 volumes:
-  data:
+  data: 04/07/2024
 services:
   db:
-    image: mysql:5.6
+    image: mysql:8.8
+    container_name: mysql-db
     ports:
       - "3306:3306"
     volumes:
       - data:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=app_development
+      - MYSQL_ROOT_PASSWORD: S3rv3r@db
+      - MYSQL_DATABASE: index
+      - MYSQL_USER: ju
+      - MYSQL_PASSWORD: ju@db
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    ports:
+      -8080:80
+    environment:
+      - PMA_HOST: db
+      - PMA_USER: ju
+      - PMA_PASSWORD: ju@db
+  
+  volumes:
+    data:
