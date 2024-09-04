@@ -1,5 +1,5 @@
 
-version: '1.1'
+version: '1.2'
 volumes:
   data: 04/07/2024
 services:
@@ -11,8 +11,8 @@ services:
     volumes:
       - data:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD: S3rv3r@db
-      - MYSQL_DATABASE: index
+      - MYSQL_ROOT_PASSWORD: server@db
+      - MYSQL_DATABASE: server
       - MYSQL_USER: ju
       - MYSQL_PASSWORD: ju@db
 
